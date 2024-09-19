@@ -100,6 +100,9 @@ class Iges:
             start = p
         return self.entity(102, [len(refs)] + refs, child=True) 
 
+    def point(self, coord_x, coord_y, coord_z, origin=(0,0,0)):
+        self.entity(116, [coord_x,coord_y,coord_z])
+
     def surface(self, directrix, vector, points, origin):
         surface = self.entity(122, [directrix] + list(vector), child=True)
         mapping = self.mapping(points, origin)
